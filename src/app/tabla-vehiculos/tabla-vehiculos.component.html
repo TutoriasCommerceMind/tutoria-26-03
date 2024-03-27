@@ -1,0 +1,17 @@
+<div>
+  <input type="text" placeholder="marca" [(ngModel)]="marca" />
+  <input type="text" placeholder="codigo" [(ngModel)]="codigo" />
+
+  <button (click)="crearVehiculo()">Crear vehiculo</button>
+</div>
+
+<div *ngFor="let vehiculo of vehiculos" class="vehiculo">
+  <h1>{{ vehiculo.codigo }}</h1>
+  <h1>{{ vehiculo.marca }}</h1>
+  <h1>{{ vehiculo.modelo }}</h1>
+  <h1>{{ vehiculo.kilometraje }}</h1>
+  <h1>{{ vehiculo.precio }}</h1>
+  <button (click)="deleteVehiculo(vehiculo.codigo)">Eliminar</button>
+  <button [routerLink]="['/detalle/' + vehiculo.codigo]">Ver</button>
+  <button [routerLink]="['/editar/' + vehiculo.codigo]">Editar</button>
+</div>
